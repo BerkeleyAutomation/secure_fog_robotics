@@ -24,11 +24,10 @@ constructed from the original topic names.
 
 ```
        -----------------                       -----------------------
-      |                 |                     |                       |
-      |  ROS 1          |                     |              ROS 2    |
-      |                 |                     |              /gdp/t1  |
-      | /t1             |        -----        |              /gdp/t2  |
-      | /t2     gdp_sink| ====> | GDP |=====> |gdp_source             |
+      |  ROS master 1   |                     |   ROS master 2        |
+      | topics:         |                     |              topics:  |
+      | /t1             |        -----        |              /gdp/t1  |
+      | /t2     gdp_sink| ====> | GDP |=====> |gdp_source    /gdp/t2  |
        -----------------         -----         -----------------------
 ```
 
@@ -63,8 +62,10 @@ high-level summary. Please see GDP documentation for in-depth details.
 
 ## Usage
 
-Before starting either `gdp_sink` or `gdp_source`, you need to create a log. Use
-the following:
+Before starting either `gdp_sink` or `gdp_source`, you need to create a log.
+Although you can create logs with any name at the moment, please stick to the
+convention of using a prefix like `edu.berkeley.foggdp.`, so we can avoid name
+collisions. Use the following to create a log:
 
 ```
 gcl-create -e none edu.berkeley.foggdp.[some-identifier]
@@ -97,7 +98,14 @@ gdp_source.py -h`.
 
 ## Final notes
 
-The two quick GDP tutorials ([Part 1](https://gdp.cs.berkeley.edu/redmine/projects/gdp/repository/revisions/master/entry/doc/tutorial/gdp-tutorial-part1.md),
+- The current GDP implementation provides very minimal security and durability
+  guarantees. This will be changed sometime soon. As such, please do not use it
+  for sensitive/critical data right away.
+
+- The GDP API and interface is going to change sometime very soon. Some code
+  modification will be necessary as and when such change happens.
+
+- The two quick GDP tutorials ([Part 1](https://gdp.cs.berkeley.edu/redmine/projects/gdp/repository/revisions/master/entry/doc/tutorial/gdp-tutorial-part1.md),
 [Part 2](https://gdp.cs.berkeley.edu/redmine/projects/gdp/repository/revisions/master/entry/doc/tutorial/gdp-tutorial-part2.md))
 are highly recommended.
 
