@@ -25,24 +25,24 @@ tunnel. Here's one way to do it using VNC:
 
 - Log in using SSH with port-fowarding
 
-```
-ssh -L 127.0.0.1:5900:localhost:5900 ubuntu@<public-ip>
-```
+    ```
+    ssh -L 127.0.0.1:5900:localhost:5900 ubuntu@<public-ip>
+    ```
 
 - Set password for user `ubuntu` (use a strong password), you will need it to
   log-in to the GUI.
 
-```
-sudo passwd ubuntu
-```
+    ```
+    sudo passwd ubuntu
+    ```
 
 - Start the server side of VNC. The following starts up a server on port 5900,
   which is limited to only local connections. However, we should be able to
   access it via port forwarding we setup during SSH earlier.
 
-```
-sudo x11vnc -localhost -forever -display :0 -auth guess
-```
+    ```
+    sudo x11vnc -localhost -forever -display :0 -auth guess
+    ```
 
 - With the SSH session running, point your favorite vnc client to
   `localhost:5900`. You should be able to see the login screen.
