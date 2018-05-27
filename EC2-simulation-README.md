@@ -1,6 +1,6 @@
 # EC2 simulation
 
-You can use AWS EC2 for simulation, if you run have limited hardware. Amazon
+If you have limited hardware, you can use AWS EC2 for simulation. Amazon
 provides reasonably cheap spot instances with GPUs for graphics applications.
 At the time of this writing, `g2.2xlarge` is around $0.21/hour, and `g2.8xlarge`
 runs for about $0.84/hour; the former should be sufficient for most purposes.
