@@ -1,0 +1,44 @@
+## To create an image from this template, rename this file to 'Dockerfile', and do 
+## $ docker build -t <imagename> .
+
+# FROM ubuntu:16.04
+
+# FROM docker-hhcc-challenge
+# FROM tensorflow/tensorflow:1.9.0-devel-gpu
+# FROM tensorflow/tensorflow:1.9.0-devel
+
+MAINTAINER Nitesh Mor <mor@eecs.berkeley.edu>
+
+# stop stupid debconf errors
+ENV DEBIAN_FRONTEND noninteractive
+
+# TODO: we should specify the version of protobuf, and
+# specific git commit tags from both repositories (gdp/gdpif)
+
+# Thee are the configuration parameters for GDP runtime
+#ENV GDP_ROUTER gdp-01.eecs.berkeley.edu:8009
+#ENV GDP_CREATE_SERVER edu.berkeley.eecs.gdp-01.gdplogd
+
+ENV GDP_ROUTER gdp.niteshmor.com
+ENV GDP_CREATE_SERVER docker.gdplogd
+
+ADD . /src
+WORKDIR /src
+
+RUN ./install-gdp.sh
+RUN ./config-gdp.sh
+
+RUN ./install-protobuf.sh
+
+RUN ./install-gdpfs.sh
+RUN ./config-gdpfs.sh
+
+RUN echo '[ ! -z "$TERM" -a -r /etc/motd ] && cat /etc/issue && cat /etc/motd' \
+    >> /etc/bash.bashrc \
+    ; echo "\
+===============================================================\n\
+Remember to add these lines to top of your tensorflow programs:\n\
+===============================================================\n\
+from tensorflow.python.framework import load_library\n\
+load_library.load_file_system_library('/src/gdpfs/gdpfs_tf.so')\n"\
+    > /etc/motd
