@@ -22,3 +22,6 @@ gdpfs_hhcc_challenge:
 	cat Dockerfile.template >> Dockerfile
 	docker build -t $@ .
 	rm -f Dockerfile
+
+clean:
+	rm -f Dockerfile
