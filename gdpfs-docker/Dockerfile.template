@@ -25,7 +25,7 @@ ENV GDP_CREATE_SERVER docker.gdplogd
 ADD . /src
 WORKDIR /src
 
-RUN ./install-gdppy.sh
+RUN ./install-gdp.sh
 RUN ./config-gdp.sh
 
 RUN ./install-protobuf.sh

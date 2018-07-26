@@ -8,7 +8,7 @@ apt-get update
 apt-get install -y $PACKAGES
 
 git clone git://repo.eecs.berkeley.edu/projects/swarmlab/gdp.git
-(cd gdp && make install-python)
+(cd gdp && make install-client && make install-python)
 
 rm -rf gdp
 apt-get clean
