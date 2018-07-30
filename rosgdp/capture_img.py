@@ -79,7 +79,7 @@ def init():
         topic = args.topic
    
     if args.gdp:
-        lh = gdp.GDP_GCL(gdp.GDP_NAME(args.path), gdp.GDP_MODE_RA)
+        lh = gdp.GDP_GIN(gdp.GDP_NAME(args.path), gdp.GDP_MODE_RA)
         subscriber = rospy.Subscriber(topic, Image, gdp_cb,
                         callback_args=(lh, encoding))
 
