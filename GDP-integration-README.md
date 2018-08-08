@@ -29,8 +29,8 @@ rosgdp/read_image.py -h` for a full list of options.
 
 ## Storing data in a GDP file-system
 
-Please see `gdp-if/tensorflow/README.md`
+Please see [`gdp-if/tensorflow/README.md`](https://gdp.cs.berkeley.edu/redmine/projects/gdp/repository/gdp-if/revisions/master/entry/tensorflow/README.md)
 
 ## Running GDP file-system with Tensorflow
 
-Please see `gdp-if/tensorflow/README.md`
+Please see [`gdp-if/tensorflow/README.md`](https://gdp.cs.berkeley.edu/redmine/projects/gdp/repository/gdp-if/revisions/master/entry/tensorflow/README.md)
