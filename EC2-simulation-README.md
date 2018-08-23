@@ -9,8 +9,8 @@ For quickstart, you can use the following AMI as a starting point, which has
 most of the software setup already (NVIDIA drivers, X configuration, ROS, HSR
 simulator, etc). 
 
-- region: `us-west-1`
-- `ami-37d3c857`
+- region: `us-west-2`
+- `ami-f62c768e`
 - instance types: `g2.2xlarge`; `g2.8xlarge`
 
 For the moment, this is a private image. If you want access, send your AWS
